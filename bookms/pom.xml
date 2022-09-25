@@ -22,7 +22,7 @@
         <java.version>11</java.version>
     </properties>
 
-    <groupId>org.example</groupId>
+    <groupId>com.amazingbooks</groupId>
     <artifactId>bookms</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
