@@ -1,0 +1,22 @@
+spring:
+  application.name: books_gateway
+
+  cloud.gateway.routes:
+        - id: book_ms
+          uri: "http://localhost:9001/"
+          predicates:
+            - "Path=/**"
+          filters:
+            - AddRequestHeader=cust-request-key, cust-request-value
+            - AddResponseHeader=cust-response-key, cust-response-value
+
+server:
+  port: 6700
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    appname: books_gateway
+    #send heartbeats for every 5 seconds to eureka server
+    leaseRenewalIntervalInSeconds: 5 #not recommended in production
