@@ -1,0 +1,24 @@
+server.port: 9001
+spring.application.name: books_lb
+
+eureka:
+  instance.appname: books_lb
+  client.serviceUrl.defaultZone: http://localhost:8761/eureka
+
+resilience4j.circuitbreaker.configs:
+  default:
+    sliding-windowType: COUNT_BASED
+    permittedNumberOfCallsInHalfOpenState: 10
+    waitDurationInOpenState: 2
+    eventConsumerBufferSize: 10
+    registerHealthIndicator: true
+    minimum-number-of-calls: 5
+#  someShared:
+#    slidingWindowSize: 50
+#    permittedNumberOfCallsInHalfOpenState: 10
+#  instances:
+#    backendA:
+#      baseConfig: default
+#      waitDurationInOpenState: 5000
+#    backendB:
+#      baseConfig: someShared

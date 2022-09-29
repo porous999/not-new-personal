@@ -1,6 +1,7 @@
 package com.amazingbooks.booksloadbalancer.controller;
 
 import com.amazingbooks.booksloadbalancer.dto.BookPutDTO;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.loadbalancer.core.RoundRobinLoadBalancer;
@@ -35,7 +36,6 @@ public class BooksLBController {
         String url = generateUrl("/books/fetch");
         return restTemplate.getForObject(url, String.class);
     }
-
 
     @GetMapping("/hello")
     public String hello() {
@@ -73,7 +73,7 @@ public class BooksLBController {
         restTemplate.put(url, bookDto);
         return "Book deleted\n";
     }
-
+    @CircuitBreaker(name="generateUrlFailure",fallbackMethod="generateUrlFailure")
     private String generateUrl(String baseUrl) {
         RoundRobinLoadBalancer roundRobinLoadBalancer = booksClientFactory.getInstance("book_ms", RoundRobinLoadBalancer.class);
 
@@ -83,4 +83,9 @@ public class BooksLBController {
 
         return String.format("http://%s:%d/%s", serviceInstance.getHost(), serviceInstance.getPort(), baseUrl);
     }
+
+    public String generateUrlFailure(Exception ex) {
+        return "generateUrl failed!!" + ex;
+    }
+
 }
