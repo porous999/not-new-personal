@@ -1,8 +1,8 @@
-package com.amazingbooks.application.com.amazingbooks.resource;
+package com.amazingbooks.application.resource;
 
-import com.amazingbooks.application.com.amazingbooks.dto.BookPutDTO;
-import com.amazingbooks.application.com.amazingbooks.entity.Book;
-import com.amazingbooks.application.com.amazingbooks.service.BooksService;
+import com.amazingbooks.application.dto.BookPutDTO;
+import com.amazingbooks.application.entity.Book;
+import com.amazingbooks.application.service.BooksService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

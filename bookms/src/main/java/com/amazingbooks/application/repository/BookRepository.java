@@ -1,6 +1,6 @@
-package com.amazingbooks.application.com.amazingbooks.repository;
+package com.amazingbooks.application.repository;
 
-import com.amazingbooks.application.com.amazingbooks.entity.Book;
+import com.amazingbooks.application.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

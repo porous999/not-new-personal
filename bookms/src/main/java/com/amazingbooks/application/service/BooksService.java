@@ -1,7 +1,7 @@
-package com.amazingbooks.application.com.amazingbooks.service;
+package com.amazingbooks.application.service;
 
-import com.amazingbooks.application.com.amazingbooks.entity.Book;
-import com.amazingbooks.application.com.amazingbooks.repository.BookRepository;
+import com.amazingbooks.application.entity.Book;
+import com.amazingbooks.application.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.amazingbooks.application.com.amazingbooks.dto;
+package com.amazingbooks.application.dto;
 
 import lombok.Data;
 

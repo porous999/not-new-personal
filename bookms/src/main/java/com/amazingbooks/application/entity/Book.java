@@ -1,4 +1,4 @@
-package com.amazingbooks.application.com.amazingbooks.entity;
+package com.amazingbooks.application.entity;
 
 import lombok.Data;
 
