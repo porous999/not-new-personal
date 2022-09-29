@@ -37,12 +37,12 @@ public class BookResources {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello World!";
+        return "Amazing Books: Hello World!";
     }
 
     @GetMapping("/welcome")
     public String welcome() {
-        return "Welcome to the world of books!";
+        return "Amazing Books: Welcome to the world of books!";
     }
 
     // fetch/add/edit/delete
